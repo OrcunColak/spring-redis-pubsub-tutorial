@@ -21,6 +21,9 @@ public class RedisEventHandlerConfig {
         return new MessageListenerAdapter(redisEventListener, "listen");
     }
 
+    // Redis Pub/Sub operates through channels that can have multiple or no subscribers at any time.
+    // Subscribers connected to those channels receive them in real-time.
+    // ChannelTopic is my bean
     @Bean
     public RedisMessageListenerContainer redisMessageListenerContainer(ChannelTopic pubSubChannelTopic,
                                                                        RedisConnectionFactory redisConnectionFactory) {

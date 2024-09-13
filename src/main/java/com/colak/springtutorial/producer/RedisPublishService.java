@@ -12,6 +12,10 @@ import org.springframework.stereotype.Service;
 public class RedisPublishService {
 
     private final RedisTemplate<String, Object> redisPubSubTemplate;
+
+    // Redis Pub/Sub operates through channels that can have multiple or no subscribers at any time.
+    // Publishers broadcast messages to these channels,
+    // ChannelTopic is my bean
     private final ChannelTopic pubSubChannelTopic;
 
     public void publishEvent(Object object) {
